@@ -24,12 +24,12 @@ public class RevisiUsulan {
     private Long id_revisi_usulan;
 
     @ManyToOne
-    @JoinColumn(name = "id_admin")
-    private Admin id_admin;
+    @JoinColumn(name = "id_user")
+    private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "id_usulan")
-    private Usulan id_usulan;
+    // @ManyToOne
+    // @JoinColumn(name = "id_usulan")
+    // private Usulan usulan;
 
     @Column(name = "revisi_pembiayaan")
     private String revisi_pembiayaan;
@@ -88,13 +88,11 @@ public class RevisiUsulan {
     @Column(name = "revisi_tanda_tangan_ormawa")
     private String revisi_tanda_tangan_ormawa;
 
-    @ElementCollection
-    @Column(name = "revisi_id_partisipan")
-    private List<String> revisi_id_partisipan;
+    @Column(name = "revisi_partisipan")
+    private String revisi_partisipan;
 
-    @ElementCollection
-    @Column(name = "revisi_id_rincian_biaya_kegiatan")
-    private List<String> revisi_id_rincian_biaya_kegiatan;
+    @Column(name = "revisi_rincian_biaya_kegiatan")
+    private String revisi_rincian_biaya_kegiatan;
 
     @Column(name = "revisi_latar_belakang")
     private String revisi_latar_belakang;
@@ -135,9 +133,9 @@ public class RevisiUsulan {
     @Column(name = "revisi_foto_linimasa_kegiatan")
     private String revisi_foto_linimasa_kegiatan;
 
-    @ElementCollection
+
     @Column(name = "revisi_foto_tempat_kegiatan")
-    private List<String> revisi_foto_tempat_kegiatan;
+    private String revisi_foto_tempat_kegiatan;
 
     @Column(name = "created_at")
     private String created_at;
@@ -150,6 +148,10 @@ public class RevisiUsulan {
 
     @Column(name = "updated_by")
     private String updated_by;
+
+    public RevisiUsulan(Long id_revisi_usulan) {
+        this.id_revisi_usulan = id_revisi_usulan;
+    }
 
     // Constructors, getters, and setters
 }

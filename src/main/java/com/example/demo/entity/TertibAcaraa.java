@@ -18,7 +18,9 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TertibAcaraa {
+    
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_tertib_acara;
     
     private String waktu_mulai;

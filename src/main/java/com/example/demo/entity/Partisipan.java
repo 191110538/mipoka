@@ -23,6 +23,8 @@ public class Partisipan {
     // @JoinColumn(name = "id_usulan")
     // private Usulan usulan;
 
+
+
     @Column(name = "no_induk")
     private String no_induk;
 

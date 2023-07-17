@@ -23,9 +23,9 @@ public class MhsPerPeriodeMptService {
     public MhsPerPeriodeMpt updateMhsPerPeriodeMpt(Long id, MhsPerPeriodeMpt updatedMhsPerPeriodeMpt) {
         MhsPerPeriodeMpt mhsPerPeriodeMpt = mhsPerPeriodeMptRepository.findById(id).orElse(null);
         if (mhsPerPeriodeMpt != null) {
-            // mhsPerPeriodeMpt.setId_user(updatedMhsPerPeriodeMpt.getId_user());
-            mhsPerPeriodeMpt.setId_periode_mpt(updatedMhsPerPeriodeMpt.getId_periode_mpt());
-            mhsPerPeriodeMpt.setId_kegiatan_per_periode_mpt(updatedMhsPerPeriodeMpt.getId_kegiatan_per_periode_mpt());
+            mhsPerPeriodeMpt.setUser(updatedMhsPerPeriodeMpt.getUser());
+            mhsPerPeriodeMpt.setPeriode_mpt(updatedMhsPerPeriodeMpt.getPeriode_mpt());
+            //mhsPerPeriodeMpt.setKegiatan_per_periode_mpt(updatedMhsPerPeriodeMpt.getKegiatan_per_periode_mpt());
             mhsPerPeriodeMpt.setCreated_at(updatedMhsPerPeriodeMpt.getCreated_at());
             mhsPerPeriodeMpt.setCreated_by(updatedMhsPerPeriodeMpt.getCreated_by());
             mhsPerPeriodeMpt.setUpdated_at(updatedMhsPerPeriodeMpt.getUpdated_at());

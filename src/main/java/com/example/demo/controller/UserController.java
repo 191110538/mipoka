@@ -53,4 +53,14 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    // @GetMapping("query")
+    // public ResponseEntity<User> getUserByQuery(@RequestParam String id) {
+    //     User user = userService.getUserByQuery(id);
+    //     if (user != null) {
+    //         return new ResponseEntity<>(user, HttpStatus.OK);
+    //     } else {
+    //         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    //     }
+    // }
 }

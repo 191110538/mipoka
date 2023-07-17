@@ -17,8 +17,10 @@ public class NamaKegiatanMpt {
     @Column(name = "id_nama_kegiatan_mpt")
     private Long id_nama_kegiatan_mpt;
 
-    @Column(name = "id_jenis_kegiatan_mpt")
-    private Long id_jenis_kegiatan_mpt;
+
+    @ManyToOne
+    @JoinColumn(name = "id_jenis_kegiatan_mpt")
+    private JenisKegiatanMpt jenis_kegiatan_mpt;
 
     @Column(name = "nama_kegiatan")
     private String nama_kegiatan;

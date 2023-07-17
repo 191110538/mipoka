@@ -30,16 +30,20 @@ public class Laporan {
     private Long id_laporan;
 
     @ManyToOne
+    @JoinColumn(name = "id_revisi_laporan")
+    private RevisiLaporan revisi_laporan;
+
+    @ManyToOne
     @JoinColumn(name = "id_user")
-    private User id_user;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "id_ormawa")
-    private Ormawa id_ormawa;
+    private Ormawa ormawa;
 
     @ManyToOne
-    @JoinColumn(name = "id_usulan")
-    private Usulan id_usulan;
+    @JoinColumn(name = "usulan")
+    private Usulan usulan;
 
     private String pencapaian;
 

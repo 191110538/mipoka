@@ -24,15 +24,19 @@ public class MhsPerPeriodeMpt {
 
     @ManyToOne
     @JoinColumn(name = "id_user")
-    private User id_user;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "id_periode_mpt")
-    private PeriodeMpt id_periode_mpt;
+    private PeriodeMpt periode_mpt;
 
-    @ManyToOne
-    @JoinColumn(name = "id_kegiatan_per_periode_mpt")
-    private KegiatanPerPeriodeMpt id_kegiatan_per_periode_mpt;
+    // @ManyToOne
+    // @JoinColumn(name = "id_kegiatan_per_periode_mpt")
+    // private KegiatanPerPeriodeMpt kegiatan_per_periode_mpt;
+
+    // @ManyToOne
+    // @JoinColumn(name = "id_nama_kegiatan_mpt")
+    // private NamaKegiatanMpt nama_kegiatan_mpt;
 
     @Column(name = "created_at")
     private String created_at;

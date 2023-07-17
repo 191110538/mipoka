@@ -19,17 +19,17 @@ import com.example.demo.entity.NamaKegiatanMpt;
 public class KegiatanPerPeriodeMpt {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_kegiatan_per_periode_mpt")
     private Long id_kegiatan_per_periode_mpt;
 
     @ManyToOne
     @JoinColumn(name = "id_periode_mpt")
-    private PeriodeMpt id_periode_mpt;
+    private PeriodeMpt periode_mpt;
 
     @ManyToOne
     @JoinColumn(name = "id_nama_kegiatan_mpt")
-    private NamaKegiatanMpt id_nama_kegiatan_mpt;
+    private NamaKegiatanMpt nama_kegiatan_mpt;
 
     @Column(name = "tanggal_mulai_kegiatan_per_periode_mpt")
     private String tanggal_mulai_kegiatan_per_periode_mpt;

@@ -5,40 +5,58 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Data
 @Table(name = "kegiatan_mpt")
-public class KegiatanMPT {
+public class KegiatanMPT implements Serializable {
 
     @Id
     @Column(name = "id_kegiatan_mpt")
-    private Long idKegiatanMPT;
+    private Long id_kegiatan_mpt;
 
-    @Column(name = "jenis_kegiatan_mpt")
-    private String jenisKegiatanMPT;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_jenis_kegiatan_mpt")
+    private JenisKegiatanMpt jenis_kegiatan_mpt;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_periode_mpt")
+    private PeriodeMpt periode_mpt;
 
     @Column(name = "nama_kegiatan_mpt")
-    private String namaKegiatanMPT;
-
-    @Column(name = "id_periode_mpt")
-    private String idPeriodeMPT;
+    private String nama_kegiatan_mpt;
 
     @Column(name = "tanggal_mulai_kegiatan_mpt")
-    private String tanggalMulaiKegiatanMPT;
+    private String tanggal_mulai_kegiatan_mpt;
 
     @Column(name = "tanggal_selesai_kegiatan_mpt")
-    private String tanggalSelesaiKegiatanMPT;
+    private String tanggal_selesai_kegiatan_mpt;
 
     @Column(name = "point_mpt_diperoleh")
-    private int pointMPTDiperoleh;
+    private int point_mpt_diperoleh;
 
-    // constructors, getters, setters, and other methods
+    @Column(name = "created_at")
+    private String created_at;
+
+    @Column(name = "created_by")
+    private String created_by;
+
+    @Column(name = "updated_at")
+    private String updated_at;
+
+    @Column(name = "updated_by")
+    private String updated_by;
 }

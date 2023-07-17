@@ -18,11 +18,11 @@ public class Session {
 
     @ManyToOne
     @JoinColumn(name = "id_user")
-    private User id_user;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "id_ormawa")
-    private Ormawa id_ormawa;
+    private Ormawa ormawa;
 
     @Column(name = "tanggal_mulai")
     private String tanggal_mulai;

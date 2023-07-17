@@ -23,10 +23,11 @@ public class Prestasi {
 
     @ManyToOne
     @JoinColumn(name = "id_ormawa")
-    private Ormawa id_ormawa;
+    private Ormawa ormawa;
 
-    @Column(name = "id_user")
-    private String id_user;
+    @ManyToOne
+    @JoinColumn(name = "id_user")
+    private User user;
 
     @Column(name = "nama_kegiatan")
     private String nama_kegiatan;

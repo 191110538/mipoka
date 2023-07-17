@@ -1,8 +1,6 @@
 package com.example.demo.entity;
 
 import javax.persistence.Column;
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -11,7 +9,6 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.List;
 
 @Entity
 @Data
@@ -25,37 +22,25 @@ public class RevisiLaporan {
     private Long id_revisi_laporan;
 
     @ManyToOne
-    @JoinColumn(name = "id_admin")
-    private Admin id_admin;
-
-    @ManyToOne
-    @JoinColumn(name = "id_laporan")
-    private Laporan id_laporan;
-
-    @ManyToOne
-    @JoinColumn(name = "id_usulan")
-    private Usulan id_usulan;
+    @JoinColumn(name = "id_user")
+    private User user;
 
     @Column(name = "revisi_pencapaian")
     private String revisi_pencapaian;
 
-    @ElementCollection
-    @CollectionTable(name = "revisi_id_peserta_kegiatan_laporan", joinColumns = @JoinColumn(name = "revisi_laporan_id"))
-    @Column(name = "id_peserta_kegiatan_laporan")
-    private List<String> revisi_id_peserta_kegiatan_laporan;
+    @Column(name = "revisi_peserta_kegiatan_laporan")
+    private String revisi_peserta_kegiatan_laporan;
 
-    @ElementCollection
-    @CollectionTable(name = "revisi_id_biaya_kegiatan", joinColumns = @JoinColumn(name = "revisi_laporan_id"))
-    @Column(name = "id_biaya_kegiatan")
-    private List<String> revisi_id_biaya_kegiatan;
+    @Column(name = "revisi_biaya_kegiatan")
+    private String revisi_biaya_kegiatan;
 
-    @Column(name = "revisi_latar_belakang", length = 4096)
+    @Column(name = "revisi_latar_belakang")
     private String revisi_latar_belakang;
 
-    @Column(name = "revisi_hasil_kegiatan", length = 4096)
+    @Column(name = "revisi_hasil_kegiatan")
     private String revisi_hasil_kegiatan;
 
-    @Column(name = "revisi_penutup", length = 4096)
+    @Column(name = "revisi_penutup")
     private String revisi_penutup;
 
     @Column(name = "revisi_foto_postingan_kegiatan")
@@ -81,6 +66,10 @@ public class RevisiLaporan {
 
     @Column(name = "updated_by")
     private String updated_by;
+
+    public RevisiLaporan(Long id_revisi_laporan) {
+        this.id_revisi_laporan = id_revisi_laporan;
+    }
 
     // Constructors, getters, and setters
 }

@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,21 +53,26 @@ public class KegiatanMPTController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<KegiatanMPT> updateKegiatanMPT(@PathVariable Long id, @RequestBody KegiatanMPT kegiatanMPT) {
+    public ResponseEntity<KegiatanMPT> updateKegiatanMPT(@PathVariable Long id,
+            @RequestBody KegiatanMPT updatedKegiatanMPT) {
         KegiatanMPT existingKegiatanMPT = kegiatanMPTService.getKegiatanMPTById(id);
         if (existingKegiatanMPT == null) {
             return ResponseEntity.notFound().build();
         }
 
-        existingKegiatanMPT.setJenisKegiatanMPT(kegiatanMPT.getJenisKegiatanMPT());
-        existingKegiatanMPT.setNamaKegiatanMPT(kegiatanMPT.getNamaKegiatanMPT());
-        existingKegiatanMPT.setIdPeriodeMPT(kegiatanMPT.getIdPeriodeMPT());
-        existingKegiatanMPT.setTanggalMulaiKegiatanMPT(kegiatanMPT.getTanggalMulaiKegiatanMPT());
-        existingKegiatanMPT.setTanggalSelesaiKegiatanMPT(kegiatanMPT.getTanggalSelesaiKegiatanMPT());
-        existingKegiatanMPT.setPointMPTDiperoleh(kegiatanMPT.getPointMPTDiperoleh());
+        existingKegiatanMPT.setJenis_kegiatan_mpt(updatedKegiatanMPT.getJenis_kegiatan_mpt());
+        existingKegiatanMPT.setNama_kegiatan_mpt(updatedKegiatanMPT.getNama_kegiatan_mpt());
+        existingKegiatanMPT.setPeriode_mpt(updatedKegiatanMPT.getPeriode_mpt());
+        existingKegiatanMPT.setTanggal_mulai_kegiatan_mpt(updatedKegiatanMPT.getTanggal_mulai_kegiatan_mpt());
+        existingKegiatanMPT.setTanggal_selesai_kegiatan_mpt(updatedKegiatanMPT.getTanggal_selesai_kegiatan_mpt());
+        existingKegiatanMPT.setPoint_mpt_diperoleh(updatedKegiatanMPT.getPoint_mpt_diperoleh());
 
-        KegiatanMPT updatedKegiatanMPT = kegiatanMPTService.updateKegiatanMPT(id, existingKegiatanMPT);
-        return ResponseEntity.ok(updatedKegiatanMPT);
+        KegiatanMPT updatedKegiatanMPTResult = kegiatanMPTService.updateKegiatanMPT(id, existingKegiatanMPT);
+        if (updatedKegiatanMPTResult == null) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+
+        return ResponseEntity.ok(updatedKegiatanMPTResult);
     }
 
     @DeleteMapping("/{id}")

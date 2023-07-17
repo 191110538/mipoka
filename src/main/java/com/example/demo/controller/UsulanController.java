@@ -59,6 +59,9 @@ public class UsulanController {
         Usulan usulan = usulanService.getUsulanById(id);
         if (usulan != null) {
             // Update the fields of the existing Usulan object
+            usulan.setUser(usulanData.getUser());
+            usulan.setOrmawa(usulanData.getOrmawa());
+            usulan.setRevisi_usulan(usulanData.getRevisi_usulan());
             usulan.setPembiayaan(usulanData.getPembiayaan());
             usulan.setNama_kegiatan(usulanData.getNama_kegiatan());
             usulan.setBentuk_kegiatan(usulanData.getBentuk_kegiatan());
@@ -88,7 +91,7 @@ public class UsulanController {
             usulan.setWaktu_dan_tempat_pelaksanaan(usulanData.getWaktu_dan_tempat_pelaksanaan());
             usulan.setRencana_anggaran_kegiatan(usulanData.getRencana_anggaran_kegiatan());
             usulan.setTotal_biaya(usulanData.getTotal_biaya());
-            usulan.setTertibAcara(usulanData.getTertibAcara());
+            usulan.setTertib_acara(usulanData.getTertib_acara());
             usulan.setPerlengkapan_dan_peralatan(usulanData.getPerlengkapan_dan_peralatan());
             usulan.setPenutup(usulanData.getPenutup());
             usulan.setFoto_postingan_kegiatan(usulanData.getFoto_postingan_kegiatan());

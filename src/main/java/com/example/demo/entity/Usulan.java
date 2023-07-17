@@ -32,13 +32,18 @@ public class Usulan {
     @Column(name = "id_usulan")
     private Long id_usulan;
 
+
+    @ManyToOne
+    @JoinColumn(name = "id_revisi_usulan")
+    private RevisiUsulan revisi_usulan;
+
     @ManyToOne
     @JoinColumn(name = "id_user")
-    private User id_user;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "id_ormawa")
-    private Ormawa id_ormawa;
+    private Ormawa ormawa;
 
     @Column(name = "pembiayaan")
     private String pembiayaan;
@@ -131,7 +136,7 @@ public class Usulan {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "usulan_id")
-    private List<TertibAcaraa> tertibAcara;
+    private List<TertibAcaraa> tertib_acara;
 
     @Column(name = "perlengkapan_dan_peralatan" , length = 2048)
     private String perlengkapan_dan_peralatan;

@@ -33,12 +33,11 @@ public class RevisiLaporanService {
     public RevisiLaporan updateRevisiLaporan(Long id, RevisiLaporan revisiLaporan) {
         RevisiLaporan existingRevisiLaporan = revisiLaporanRepository.findById(id).orElse(null);
         if (existingRevisiLaporan != null) {
-            existingRevisiLaporan.setId_admin(revisiLaporan.getId_admin());
-            existingRevisiLaporan.setId_laporan(revisiLaporan.getId_laporan());
-            existingRevisiLaporan.setId_usulan(revisiLaporan.getId_usulan());
+            existingRevisiLaporan.setUser(revisiLaporan.getUser());
+            // existingRevisiLaporan.setId_usulan(revisiLaporan.getId_usulan());
             existingRevisiLaporan.setRevisi_pencapaian(revisiLaporan.getRevisi_pencapaian());
-            existingRevisiLaporan.setRevisi_id_peserta_kegiatan_laporan(revisiLaporan.getRevisi_id_peserta_kegiatan_laporan());
-            existingRevisiLaporan.setRevisi_id_biaya_kegiatan(revisiLaporan.getRevisi_id_biaya_kegiatan());
+            existingRevisiLaporan.setRevisi_peserta_kegiatan_laporan(revisiLaporan.getRevisi_peserta_kegiatan_laporan());
+            existingRevisiLaporan.setRevisi_biaya_kegiatan(revisiLaporan.getRevisi_biaya_kegiatan());
             existingRevisiLaporan.setRevisi_latar_belakang(revisiLaporan.getRevisi_latar_belakang());
             existingRevisiLaporan.setRevisi_hasil_kegiatan(revisiLaporan.getRevisi_hasil_kegiatan());
             existingRevisiLaporan.setRevisi_penutup(revisiLaporan.getRevisi_penutup());

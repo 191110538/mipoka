@@ -39,12 +39,12 @@ public class KegiatanMPTService {
         Optional<KegiatanMPT> kegiatanMPTOptional = kegiatanMPTRepository.findById(id);
         if (kegiatanMPTOptional.isPresent()) {
             KegiatanMPT kegiatanMPT = kegiatanMPTOptional.get();
-            kegiatanMPT.setJenisKegiatanMPT(updatedKegiatanMPT.getJenisKegiatanMPT());
-            kegiatanMPT.setNamaKegiatanMPT(updatedKegiatanMPT.getNamaKegiatanMPT());
-            kegiatanMPT.setIdPeriodeMPT(updatedKegiatanMPT.getIdPeriodeMPT());
-            kegiatanMPT.setTanggalMulaiKegiatanMPT(updatedKegiatanMPT.getTanggalMulaiKegiatanMPT());
-            kegiatanMPT.setTanggalSelesaiKegiatanMPT(updatedKegiatanMPT.getTanggalSelesaiKegiatanMPT());
-            kegiatanMPT.setPointMPTDiperoleh(updatedKegiatanMPT.getPointMPTDiperoleh());
+            kegiatanMPT.setJenis_kegiatan_mpt(updatedKegiatanMPT.getJenis_kegiatan_mpt());
+            kegiatanMPT.setNama_kegiatan_mpt(updatedKegiatanMPT.getNama_kegiatan_mpt());
+            kegiatanMPT.setPeriode_mpt(updatedKegiatanMPT.getPeriode_mpt());
+            kegiatanMPT.setTanggal_mulai_kegiatan_mpt(updatedKegiatanMPT.getTanggal_mulai_kegiatan_mpt());
+            kegiatanMPT.setTanggal_selesai_kegiatan_mpt(updatedKegiatanMPT.getTanggal_selesai_kegiatan_mpt());
+            kegiatanMPT.setPoint_mpt_diperoleh(updatedKegiatanMPT.getPoint_mpt_diperoleh());
             return kegiatanMPTRepository.save(kegiatanMPT);
         } else {
             throw new RuntimeException("Kegiatan MPT not found with id: " + id);

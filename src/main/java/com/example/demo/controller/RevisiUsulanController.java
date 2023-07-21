@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,12 @@ public class RevisiUsulanController {
         this.revisiUsulanService = revisiUsulanService;
     }
 
+    // @GetMapping
+    // public ResponseEntity<List<RevisiUsulan>> getAllRevisiUsulan() {
+    //     List<RevisiUsulan> revisiUsulanList = revisiUsulanService.getAllRevisiUsulan();
+    //     return ResponseEntity.ok(revisiUsulanList);
+    // }
+
     @PostMapping
     public ResponseEntity<RevisiUsulan> createRevisiUsulan(@RequestBody RevisiUsulan revisiUsulan) {
         RevisiUsulan createdRevisiUsulan = revisiUsulanService.createRevisiUsulan(revisiUsulan);
@@ -33,9 +41,14 @@ public class RevisiUsulanController {
         }
         return ResponseEntity.ok(revisiUsulan);
     }
+    @GetMapping
+    public List<RevisiUsulan> getAllRevisiUsulan() {
+        return revisiUsulanService.getAllRevisiUsulan();
+    }
 
     @PutMapping("/{id}")
-    public ResponseEntity<RevisiUsulan> updateRevisiUsulan(@PathVariable Long id, @RequestBody RevisiUsulan revisiUsulan) {
+    public ResponseEntity<RevisiUsulan> updateRevisiUsulan(@PathVariable Long id,
+            @RequestBody RevisiUsulan revisiUsulan) {
         RevisiUsulan updatedRevisiUsulan = revisiUsulanService.updateRevisiUsulan(id, revisiUsulan);
         if (updatedRevisiUsulan == null) {
             return ResponseEntity.notFound().build();

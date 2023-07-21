@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +16,10 @@ public class JenisKegiatanMptController {
     @Autowired
     public JenisKegiatanMptController(JenisKegiatanMptService jenisKegiatanMptService) {
         this.jenisKegiatanMptService = jenisKegiatanMptService;
+    }
+    @GetMapping
+    public List<JenisKegiatanMpt> getAllJenisKegiatanMpt() {
+        return jenisKegiatanMptService.getAllJenisKegiatanMpt();
     }
 
     @PostMapping

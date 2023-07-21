@@ -18,10 +18,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Berita {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_berita")
     private Long id_berita;
-
+//@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "judul")
     private String judul;
 

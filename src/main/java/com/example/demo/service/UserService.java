@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 
+
+import javax.persistence.NonUniqueResultException;
+
 import java.util.List;
 
 @Service
@@ -46,16 +49,23 @@ public class UserService {
     }
 
     // public void deleteUser(Long id) {
-    //     userRepository.deleteById(id);
+    // userRepository.deleteById(id);
     // }
     public boolean deleteUser(String id) {
-    if (userRepository.existsById(id)) {
-        userRepository.deleteById(id);
-        return true;
-    } else {
-        return false;
+        if (userRepository.existsById(id)) {
+            userRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
-}
 
-    
+    public User getUserByNim(String nim) {
+        try {
+            return userRepository.findByNim(nim).stream().findFirst().orElse(null);
+        } catch (NonUniqueResultException ex) {
+            return null;
+        }
+    }
+
 }

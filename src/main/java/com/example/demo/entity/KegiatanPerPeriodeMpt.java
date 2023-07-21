@@ -21,7 +21,7 @@ public class KegiatanPerPeriodeMpt {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_kegiatan_per_periode_mpt")
-    private Long id_kegiatan_per_periode_mpt;
+    private Long kegiatan_per_periode_mpt;
 
     @ManyToOne
     @JoinColumn(name = "id_periode_mpt")

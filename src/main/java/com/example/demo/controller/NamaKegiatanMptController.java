@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,15 @@ public class NamaKegiatanMptController {
     @Autowired
     public NamaKegiatanMptController(NamaKegiatanMptService namaKegiatanMptService) {
         this.namaKegiatanMptService = namaKegiatanMptService;
+    }
+    @GetMapping
+    public ResponseEntity<List<NamaKegiatanMpt>> getAllNamaKegiatanMpt() {
+        List<NamaKegiatanMpt> allNamaKegiatanMpt = namaKegiatanMptService.getAllNamaKegiatanMpt();
+        if (!allNamaKegiatanMpt.isEmpty()) {
+            return ResponseEntity.ok(allNamaKegiatanMpt);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping("/{id}")

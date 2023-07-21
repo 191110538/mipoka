@@ -32,9 +32,14 @@ public class User implements Serializable {
     // @Column(name = "id_ormawa")
     // private List<Long> id_ormawa;
 
+    // @ElementCollection
+    // @CollectionTable(name = "user_ormawa", joinColumns = @JoinColumn(name = "id_user"))
+    // private List<Ormawa> id_ormawa;
+
     @ElementCollection
     @CollectionTable(name = "user_ormawa", joinColumns = @JoinColumn(name = "id_user"))
     private List<Ormawa> id_ormawa;
+
 
     @Column(name = "email")
     private String email;

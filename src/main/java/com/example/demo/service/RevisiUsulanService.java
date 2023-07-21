@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,9 @@ public class RevisiUsulanService {
     @Autowired
     public RevisiUsulanService(RevisiUsulanRepository revisiUsulanRepository) {
         this.revisiUsulanRepository = revisiUsulanRepository;
+    }
+    public List<RevisiUsulan> getAllRevisiUsulan() {
+        return revisiUsulanRepository.findAll();
     }
 
     public RevisiUsulan createRevisiUsulan(RevisiUsulan revisiUsulan) {

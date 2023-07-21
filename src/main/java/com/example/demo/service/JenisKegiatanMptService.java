@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,10 @@ public class JenisKegiatanMptService {
     public JenisKegiatanMpt createJenisKegiatanMpt(JenisKegiatanMpt jenisKegiatanMpt) {
         return jenisKegiatanMptRepository.save(jenisKegiatanMpt);
     }
+    public List<JenisKegiatanMpt> getAllJenisKegiatanMpt() {
+        return jenisKegiatanMptRepository.findAll();
+    }
+
 
     public JenisKegiatanMpt getJenisKegiatanMptById(Long id) {
         return jenisKegiatanMptRepository.findById(id).orElse(null);

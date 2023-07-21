@@ -23,6 +23,16 @@ public class UserController {
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
+    // @GetMapping("nim/{nim}")
+    // public ResponseEntity<User> getUserByNim(@PathVariable String nim) {
+    //     User user = userService.getUserByNim(nim);
+    //     if (user != null) {
+    //         return ResponseEntity.ok(user);
+    //     } else {
+    //         return ResponseEntity.notFound().build();
+    //     }
+    // }
+
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable String id) {
         User user = userService.getUserById(id);
@@ -30,6 +40,16 @@ public class UserController {
             return new ResponseEntity<>(user, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/nim/{nim}")
+    public ResponseEntity<User> getUserByNim(@PathVariable String nim) {
+        User user = userService.getUserByNim(nim);
+        if (user != null) {
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 
@@ -56,11 +76,11 @@ public class UserController {
 
     // @GetMapping("query")
     // public ResponseEntity<User> getUserByQuery(@RequestParam String id) {
-    //     User user = userService.getUserByQuery(id);
-    //     if (user != null) {
-    //         return new ResponseEntity<>(user, HttpStatus.OK);
-    //     } else {
-    //         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    //     }
+    // User user = userService.getUserByQuery(id);
+    // if (user != null) {
+    // return new ResponseEntity<>(user, HttpStatus.OK);
+    // } else {
+    // return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    // }
     // }
 }

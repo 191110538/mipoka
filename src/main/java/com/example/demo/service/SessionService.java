@@ -31,6 +31,7 @@ public class SessionService {
     public Session updateSession(Long id, Session updatedSession) {
         Session session = sessionRepository.findById(id).orElse(null);
         if (session != null) {
+            session.setOrmawa(updatedSession.getOrmawa());
             session.setTanggal_mulai(updatedSession.getTanggal_mulai());
             session.setTanggal_selesai(updatedSession.getTanggal_selesai());
             session.setRuangan(updatedSession.getRuangan());

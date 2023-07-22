@@ -31,6 +31,8 @@ public class UserService {
 
     public User updateUser(String id, User updatedUser) {
         User user = getUserById(id);
+        //user.setId_user(updatedUser.getId_user());
+        user.setOrmawa(updatedUser.getOrmawa());
         user.setEmail(updatedUser.getEmail());
         user.setNama_lengkap(updatedUser.getNama_lengkap());
         user.setNim(updatedUser.getNim());

@@ -40,7 +40,6 @@ public class User implements Serializable {
     @CollectionTable(name = "user_ormawa", joinColumns = @JoinColumn(name = "id_user"))
     private List<Ormawa> ormawa;
 
-
     @Column(name = "email")
     private String email;
 

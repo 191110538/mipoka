@@ -17,7 +17,7 @@ import com.example.demo.entity.NamaKegiatanMpt;
 @Entity
 @Table(name = "kegiatan_per_periode_mpt")
 public class KegiatanPerPeriodeMpt {
-
+//tes
     @Id
     @Column(name = "id_kegiatan_per_periode_mpt")
     private Long id_kegiatan_per_periode_mpt;

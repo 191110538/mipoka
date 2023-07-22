@@ -20,7 +20,7 @@ public class KegiatanPerPeriodeMpt {
 
     @Id
     @Column(name = "id_kegiatan_per_periode_mpt")
-    private Long kegiatan_per_periode_mpt;
+    private Long id_kegiatan_per_periode_mpt;
 
     @ManyToOne
     @JoinColumn(name = "id_periode_mpt")
@@ -51,9 +51,9 @@ public class KegiatanPerPeriodeMpt {
     @Column(name = "updated_by")
     private String updated_by;
 
-    // public KegiatanPerPeriodeMpt(Long id_kegiatan_per_periode_mpt) {
-    //     this.id_kegiatan_per_periode_mpt = id_kegiatan_per_periode_mpt;
-    // }
+    public KegiatanPerPeriodeMpt(Long id_kegiatan_per_periode_mpt) {
+        this.id_kegiatan_per_periode_mpt = id_kegiatan_per_periode_mpt;
+    }
 
     // Constructors, getters, setters, and other methods
 }

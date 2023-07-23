@@ -90,7 +90,7 @@ public class Laporan {
     private String file_laporan_kegiatan;
 
     @Column(name = "validasi_pembina")
-    private Boolean validasi_pembina;
+    private String validasi_pembina;
 
     @Column(name = "status_laporan")
     private String status_laporan;

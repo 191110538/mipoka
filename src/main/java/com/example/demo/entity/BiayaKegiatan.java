@@ -36,6 +36,18 @@ public class BiayaKegiatan {
     @Column(name = "keterangan")
     private String keterangan;
 
+    @Column(name = "created_at")
+    private String created_at;
+
+    @Column(name = "created_by")
+    private String created_by;
+
+    @Column(name = "updated_at")
+    private String updated_at;
+
+    @Column(name = "updated_by")
+    private String updated_by;
+
     // @ManyToOne
     // @JoinColumn(name = "usulan_id")
     // private Usulan usulan;

@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,6 +31,18 @@ public class TertibAcaraa {
     private String aktivitas;
     
     private String keterangan;
+
+    @Column(name = "created_at")
+    private String created_at;
+
+    @Column(name = "created_by")
+    private String created_by;
+
+    @Column(name = "updated_at")
+    private String updated_at;
+
+    @Column(name = "updated_by")
+    private String updated_by;
     
     // Constructors, getters, and setters
 }

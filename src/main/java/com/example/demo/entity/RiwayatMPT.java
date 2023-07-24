@@ -30,7 +30,7 @@ public class RiwayatMPT implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "id_kegiatan_per_periode_mpt")
-    private KegiatanPerPeriodeMpt id_kegiatan_per_periode_mpt;
+    private KegiatanPerPeriodeMpt kegiatan_per_periode_mpt;
 
     @ManyToOne
     @JoinColumn(name = "id_user")

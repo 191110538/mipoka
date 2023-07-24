@@ -38,6 +38,8 @@ public class KegiatanPerPeriodeMptService {
         Optional<KegiatanPerPeriodeMpt> kegiatanPerPeriodeMptOptional = kegiatanPerPeriodeMptRepository.findById(id);
         if (kegiatanPerPeriodeMptOptional.isPresent()) {
             KegiatanPerPeriodeMpt kegiatanPerPeriodeMpt = kegiatanPerPeriodeMptOptional.get();
+            kegiatanPerPeriodeMpt.setPeriode_mpt(updatedKegiatanPerPeriodeMpt.getPeriode_mpt());
+            kegiatanPerPeriodeMpt.setNama_kegiatan_mpt(updatedKegiatanPerPeriodeMpt.getNama_kegiatan_mpt());
             kegiatanPerPeriodeMpt.setTanggal_mulai_kegiatan_per_periode_mpt(
                     updatedKegiatanPerPeriodeMpt.getTanggal_mulai_kegiatan_per_periode_mpt());
             kegiatanPerPeriodeMpt.setTanggal_selesai_kegiatan_per_periode_mpt(
@@ -66,17 +68,20 @@ public class KegiatanPerPeriodeMptService {
         }
     }
 
-    // public List<KegiatanPerPeriodeMpt> filterKegiatanPerPeriodeMptByIdPeriodeAndIdNamaKegiatan(Long idPeriode,
-    //         Long idNamaKegiatan) {
-    //     if (idPeriode == 0 && idNamaKegiatan == 0) {
-    //         return kegiatanPerPeriodeMptRepository.findAll();
-    //     } else if (idPeriode == 0) {
-    //         return kegiatanPerPeriodeMptRepository.findByNamaKegiatanMpt(new NamaKegiatanMpt(idNamaKegiatan));
-    //     } else if (idNamaKegiatan == 0) {
-    //         return kegiatanPerPeriodeMptRepository.findByPeriodeMpt(new PeriodeMpt(idPeriode));
-    //     } else {
-    //         return kegiatanPerPeriodeMptRepository.findByPeriodeMptAndNamaKegiatanMpt(
-    //                 new PeriodeMpt(idPeriode), new NamaKegiatanMpt(idNamaKegiatan));
-    //     }
+    // public List<KegiatanPerPeriodeMpt>
+    // filterKegiatanPerPeriodeMptByIdPeriodeAndIdNamaKegiatan(Long idPeriode,
+    // Long idNamaKegiatan) {
+    // if (idPeriode == 0 && idNamaKegiatan == 0) {
+    // return kegiatanPerPeriodeMptRepository.findAll();
+    // } else if (idPeriode == 0) {
+    // return kegiatanPerPeriodeMptRepository.findByNamaKegiatanMpt(new
+    // NamaKegiatanMpt(idNamaKegiatan));
+    // } else if (idNamaKegiatan == 0) {
+    // return kegiatanPerPeriodeMptRepository.findByPeriodeMpt(new
+    // PeriodeMpt(idPeriode));
+    // } else {
+    // return kegiatanPerPeriodeMptRepository.findByPeriodeMptAndNamaKegiatanMpt(
+    // new PeriodeMpt(idPeriode), new NamaKegiatanMpt(idNamaKegiatan));
+    // }
     // }
 }

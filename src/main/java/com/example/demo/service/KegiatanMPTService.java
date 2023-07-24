@@ -39,6 +39,7 @@ public class KegiatanMPTService {
         Optional<KegiatanMPT> kegiatanMPTOptional = kegiatanMPTRepository.findById(id);
         if (kegiatanMPTOptional.isPresent()) {
             KegiatanMPT kegiatanMPT = kegiatanMPTOptional.get();
+            kegiatanMPT.setNama_kegiatan_mpt(updatedKegiatanMPT.getNama_kegiatan_mpt());
             kegiatanMPT.setJenis_kegiatan_mpt(updatedKegiatanMPT.getJenis_kegiatan_mpt());
             kegiatanMPT.setNama_kegiatan_mpt(updatedKegiatanMPT.getNama_kegiatan_mpt());
             kegiatanMPT.setPeriode_mpt(updatedKegiatanMPT.getPeriode_mpt());

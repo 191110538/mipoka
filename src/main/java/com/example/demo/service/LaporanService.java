@@ -28,8 +28,7 @@ public class LaporanService {
     public Laporan updateLaporan(Long id, Laporan updatedLaporan) {
         Laporan laporan = laporanRepository.findById(id).orElse(null);
         if (laporan != null) {
-            laporan.setUser(updatedLaporan.getUser());
-            laporan.setOrmawa(updatedLaporan.getOrmawa());
+            laporan.setRevisi_laporan(updatedLaporan.getRevisi_laporan());
             laporan.setUsulan(updatedLaporan.getUsulan());
             laporan.setPencapaian(updatedLaporan.getPencapaian());
             laporan.setPeserta_kegiatan_laporan(updatedLaporan.getPeserta_kegiatan_laporan());

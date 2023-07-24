@@ -33,13 +33,13 @@ public class Laporan {
     @JoinColumn(name = "id_revisi_laporan")
     private RevisiLaporan revisi_laporan;
 
-    @ManyToOne
-    @JoinColumn(name = "id_user")
-    private User user;
+    // @ManyToOne
+    // @JoinColumn(name = "id_user")
+    // private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "id_ormawa")
-    private Ormawa ormawa;
+    // @ManyToOne
+    // @JoinColumn(name = "id_ormawa")
+    // private Ormawa ormawa;
 
     @ManyToOne
     @JoinColumn(name = "usulan")

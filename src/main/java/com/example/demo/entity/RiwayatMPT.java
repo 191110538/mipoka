@@ -26,7 +26,7 @@ public class RiwayatMPT implements Serializable{
 
     @Id
     @Column(name = "id_riwayat_mpt")
-    private Long id_riwayat_mpt;
+    private Long id_riwayat_kegiatan_mpt;
 
     @ManyToOne
     @JoinColumn(name = "id_kegiatan_per_periode_mpt")

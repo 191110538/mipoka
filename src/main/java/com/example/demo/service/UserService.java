@@ -44,6 +44,7 @@ public class UserService {
         user.setPeriode_mpt(updatedUser.getPeriode_mpt());
         user.setStatus_mpt(updatedUser.getStatus_mpt());
         user.setProdi(updatedUser.getProdi());
+        user.setRole(updatedUser.getRole());
         user.setUpdated_at(updatedUser.getUpdated_at());
         user.setUpdated_by(updatedUser.getUpdated_by());
 

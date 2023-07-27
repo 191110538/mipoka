@@ -73,6 +73,9 @@ public class User implements Serializable {
     @Column(name = "prodi")
     private String prodi;
 
+    @Column(name = "role")
+    private String role;
+
     @Column(name = "created_at")
     private String created_at;
 

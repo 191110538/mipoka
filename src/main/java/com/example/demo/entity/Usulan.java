@@ -33,7 +33,7 @@ public class Usulan {
     private Long id_usulan;
 
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "id_revisi_usulan")
     private RevisiUsulan revisi_usulan;
 

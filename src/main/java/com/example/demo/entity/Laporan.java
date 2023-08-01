@@ -29,7 +29,7 @@ public class Laporan {
     @Column(name = "id_laporan")
     private Long id_laporan;
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "id_revisi_laporan")
     private RevisiLaporan revisi_laporan;
 

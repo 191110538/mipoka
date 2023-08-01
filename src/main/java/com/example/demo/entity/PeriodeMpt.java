@@ -12,7 +12,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class PeriodeMpt {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_periode_mpt")
     private Long id_periode_mpt;
 

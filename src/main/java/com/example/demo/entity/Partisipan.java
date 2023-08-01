@@ -16,7 +16,6 @@ import java.util.Date;
 public class Partisipan {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_partisipan;
 
     // @ManyToOne

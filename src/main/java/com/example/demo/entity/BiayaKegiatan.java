@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 public class BiayaKegiatan {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_biaya_kegiatan")
     private Long id_biaya_kegiatan;
 

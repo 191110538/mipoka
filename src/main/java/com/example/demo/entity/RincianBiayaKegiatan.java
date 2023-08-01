@@ -17,8 +17,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "rincian_biaya_kegiatan")
 public class RincianBiayaKegiatan {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_rincian_biaya_kegiatan")
     private Long id_rincian_biaya_kegiatan;
 

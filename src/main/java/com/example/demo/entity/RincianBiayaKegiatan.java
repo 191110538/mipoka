@@ -29,10 +29,10 @@ public class RincianBiayaKegiatan {
 
     private String keterangan;
 
-    private Integer kuantitas;
+    private Long kuantitas;
 
     @Column(name = "harga_satuan")
-    private Integer harga_satuan;
+    private Long harga_satuan;
 
     @Column(name = "usulan_anggaran")
     private Long usulan_anggaran;

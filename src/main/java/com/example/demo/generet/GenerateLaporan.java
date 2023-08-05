@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.entity.Laporan;
 import com.example.demo.repository.LaporanRepository;
-
+//tes
 @RestController
 public class GenerateLaporan {
     private final LaporanRepository laporanRepository;

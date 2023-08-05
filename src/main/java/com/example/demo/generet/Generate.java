@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.entity.Usulan;
 
-import com.example.demo.entity.Usulan;
+
 import com.example.demo.repository.UsulanRepository; // Ganti dengan lokasi repository yang sesuai
 
 @RestController

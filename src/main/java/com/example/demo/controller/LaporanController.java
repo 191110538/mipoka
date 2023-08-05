@@ -20,7 +20,7 @@ public class LaporanController {
         this.laporanService = laporanService;
     }
 
-    @PostMapping
+    @PostMapping("/post")
     public ResponseEntity<Laporan> createLaporan(@RequestBody Laporan laporan) {
         Laporan createdLaporan = laporanService.createLaporan(laporan);
         return new ResponseEntity<>(createdLaporan, HttpStatus.CREATED);

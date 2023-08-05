@@ -57,6 +57,7 @@ public class LaporanService {
         }
     }
 
+  
     public boolean deleteLaporan(Long id) {
         Laporan laporan = laporanRepository.findById(id).orElse(null);
         if (laporan != null) {

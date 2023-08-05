@@ -34,7 +34,7 @@ public class UsulanController {
         this.usulanService = usulanService;
     }
 
-    @PostMapping
+    @PostMapping("/post")
     public Usulan createUsulan(@RequestBody Usulan usulan) {
         return usulanService.createUsulan(usulan);
     }

@@ -23,7 +23,7 @@ public class Generate {
         this.usulanRepository = usulanRepository;
     }
 
-    @PostMapping("/generate_usulan")
+    @PostMapping("/usulan")
     public String generateUsulanKegiatan(@RequestBody Usulan usulan) {
         // Cek apakah ada properti yang kosong atau ""
         if (isAnyPropertyEmpty(usulan)) {

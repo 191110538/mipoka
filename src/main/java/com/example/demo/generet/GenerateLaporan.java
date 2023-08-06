@@ -1,7 +1,5 @@
 package com.example.demo.generet;
 
-
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -19,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.entity.Laporan;
 import com.example.demo.repository.LaporanRepository;
+
 //tes
 @RestController
 public class GenerateLaporan {
@@ -102,19 +101,22 @@ public class GenerateLaporan {
             // Simpan data laporan yang telah diupdate ke database
             laporanRepository.save(laporan);
 
-            // Jika semua properti telah terisi, baru jalankan generate dan POST ke server
-            if (isAllPropertiesFilled(laporan)) {
-                // Generate file docx dan dapatkan URL file docx
+            // Check conditions for generating docx
+            if ((laporan.getRevisi_laporan() == null && !laporan.getPenutup().isEmpty())
+                    || (laporan.getValidasi_pembina().equals("Disetujui"))) {
+                // Generate file docx and get the URL
                 String fileUrl = generateDocx(laporan);
 
                 // Set properti "file_laporan_kegiatan" dengan nilai fileUrl
                 laporan.setFile_laporan_kegiatan(fileUrl);
 
-                // Update kembali data laporan dengan properti "file_laporan_kegiatan" yang telah terisi
+                // Update kembali data laporan dengan properti "file_laporan_kegiatan" yang
+                // telah terisi
                 laporanRepository.save(laporan);
 
                 // Tampilkan URL file docx yang telah disimpan
-                return ResponseEntity.ok("Laporan dengan ID " + id + " berhasil diupdate dan file docx telah digenerate. URL file docx: " + fileUrl);
+                return ResponseEntity.ok("Laporan dengan ID " + id
+                        + " berhasil diupdate dan file docx telah digenerate. URL file docx: " + fileUrl);
             } else {
                 return ResponseEntity.ok("Laporan dengan ID " + id + " berhasil diupdate.");
             }

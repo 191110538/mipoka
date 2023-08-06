@@ -32,7 +32,7 @@ public class SessionController {
         return sessionService.createSession(session);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public Session updateSession(@PathVariable Long id, @RequestBody Session updatedSession) {
         return sessionService.updateSession(id, updatedSession);
     }

@@ -54,7 +54,7 @@ public class UsulanController {
         usulanService.deleteUsulan(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public Usulan updateUsulan(@PathVariable Long id, @RequestBody Usulan usulanData) {
         Usulan usulan = usulanService.getUsulanById(id);
         if (usulan != null) {

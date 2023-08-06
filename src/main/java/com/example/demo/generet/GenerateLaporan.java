@@ -67,13 +67,7 @@ public class GenerateLaporan {
     // Method untuk mengecek apakah semua properti telah terisi
     private boolean isAllPropertiesFilled(Laporan laporan) {
         // Cek semua properti yang ingin dicek
-        return laporan.getUsulan() != null && laporan.getUsulan().getId_usulan() != null
-                && laporan.getPencapaian() != null && !laporan.getPencapaian().isEmpty()
-                && laporan.getPeserta_kegiatan_laporan() != null && !laporan.getPeserta_kegiatan_laporan().isEmpty()
-                && laporan.getRincian_biaya_kegiatan() != null && !laporan.getRincian_biaya_kegiatan().isEmpty()
-                && laporan.getLatar_belakang() != null && !laporan.getLatar_belakang().isEmpty()
-                && laporan.getHasil_kegiatan() != null && !laporan.getHasil_kegiatan().isEmpty()
-                && laporan.getPenutup() != null && !laporan.getPenutup().isEmpty();
+        return laporan.getUsulan()!= null && !laporan.getPenutup().isEmpty();
         // Lanjutkan dengan properti-properti lain yang ingin Anda cek di sini
         // ...
     }

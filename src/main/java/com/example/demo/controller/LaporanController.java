@@ -41,7 +41,7 @@ public class LaporanController {
         }
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Laporan> updateLaporan(@PathVariable("id") Long id, @RequestBody Laporan laporan) {
         Laporan updatedLaporan = laporanService.updateLaporan(id, laporan);
         if (updatedLaporan != null) {

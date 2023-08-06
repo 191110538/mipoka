@@ -49,7 +49,7 @@ public class SessionService {
             session.setSpidol(updatedSession.getSpidol());
             session.setLain_lain(updatedSession.getLain_lain());
             session.setStatus(updatedSession.getStatus());
-            session.setKeterangan(updatedSession.getKeterangan());
+            session.setTanda_tangan_sa(updatedSession.getTanda_tangan_sa());
             session.setUpdated_at(updatedSession.getUpdated_at());
             session.setCreated_at(updatedSession.getCreated_at());
             session.setUpdated_by(updatedSession.getUpdated_by());

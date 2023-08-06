@@ -56,7 +56,7 @@ public class Session {
     private String lain_lain;
 
     private String status;
-    private String keterangan;
+    private String tanda_tangan_sa;
 
     @Column(name = "file_session ")
     private String file_session;

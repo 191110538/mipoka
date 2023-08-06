@@ -66,30 +66,6 @@ public class Generate {
     // Method untuk mengecek apakah semua properti telah terisi
     private boolean isAllPropertiesFilled(Usulan usulan) {
         // Cek semua properti yang ingin dicek
-        return usulan.getNama_kegiatan() != null && !usulan.getNama_kegiatan().isEmpty()
-        && usulan.getDeskripsi_kegiatan() != null && !usulan.getDeskripsi_kegiatan().isEmpty()
-        && usulan.getTanggal_mulai_kegiatan() != null && !usulan.getTanggal_mulai_kegiatan().isEmpty()
-        && usulan.getTanggal_selesai_kegiatan() != null && !usulan.getTanggal_selesai_kegiatan().isEmpty()
-        && usulan.getWaktu_mulai_kegiatan() != null && !usulan.getWaktu_mulai_kegiatan().isEmpty()
-        && usulan.getWaktu_selesai_kegiatan() != null && !usulan.getWaktu_selesai_kegiatan().isEmpty()
-        && usulan.getTempat_kegiatan() != null && !usulan.getTempat_kegiatan().isEmpty()
-        && usulan.getTanggal_keberangkatan() != null && !usulan.getTanggal_keberangkatan().isEmpty()
-        && usulan.getTanggal_kepulangan() != null && !usulan.getTanggal_kepulangan().isEmpty()
-        && usulan.getJumlah_partisipan() != null && !usulan.getJumlah_partisipan().isEmpty()
-        && usulan.getKategori_jumlah_partisipan() != null && !usulan.getKategori_jumlah_partisipan().isEmpty()
-        && usulan.getTarget_kegiatan() != null && !usulan.getTarget_kegiatan().isEmpty()
-        && usulan.getTotal_pendanaan() != null && !usulan.getTotal_pendanaan().isEmpty()
-        && usulan.getKategori_total_pendanaan() != null && !usulan.getKategori_total_pendanaan().isEmpty()
-        && usulan.getKeterangan() != null && !usulan.getKeterangan().isEmpty()
-        && usulan.getTanda_tangan_ormawa() != null && !usulan.getTanda_tangan_ormawa().isEmpty()
-        && usulan.getLatar_belakang() != null && !usulan.getLatar_belakang().isEmpty()
-        && usulan.getTujuan_kegiatan() != null && !usulan.getTujuan_kegiatan().isEmpty()
-        && usulan.getManfaat_kegiatan() != null && !usulan.getManfaat_kegiatan().isEmpty()
-        && usulan.getBentuk_pelaksanaan_kegiatan() != null && !usulan.getBentuk_pelaksanaan_kegiatan().isEmpty()
-        && usulan.getTarget_pencapaian_kegiatan() != null && !usulan.getTarget_pencapaian_kegiatan().isEmpty()
-        && usulan.getWaktu_dan_tempat_pelaksanaan() != null && !usulan.getWaktu_dan_tempat_pelaksanaan().isEmpty()
-        && usulan.getRencana_anggaran_kegiatan() != null && !usulan.getRencana_anggaran_kegiatan().isEmpty()
-        && usulan.getPerlengkapan_dan_peralatan() != null && !usulan.getPerlengkapan_dan_peralatan().isEmpty()
-        && usulan.getPenutup() != null && !usulan.getPenutup().isEmpty();
+        return !usulan.getPenutup().isEmpty();
     }
 }

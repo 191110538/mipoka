@@ -27,7 +27,7 @@ public class SessionController {
         return sessionService.getSessionById(id);
     }
 
-    @PostMapping
+    @PostMapping("/post")
     public Session createSession(@RequestBody Session session) {
         return sessionService.createSession(session);
     }

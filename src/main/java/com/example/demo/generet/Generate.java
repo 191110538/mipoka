@@ -159,10 +159,7 @@ public class Generate {
 
             // Check conditions for generating the docx file
             String fileUrl = null;
-            if ("Tertunda".equals(updatedUsulan.getValidasi_pembina()) && !updatedUsulan.getPenutup().isEmpty()) {
-                // Generate docx file and get the URL
-                fileUrl = generateDocx(usulan);
-            } else if ("Disetujui".equals(updatedUsulan.getValidasi_pembina())) {
+            if ("Disetujui".equals(updatedUsulan.getValidasi_pembina())) {
                 // Generate docx file and get the URL
                 fileUrl = generateDocx(usulan);
             }
@@ -183,5 +180,4 @@ public class Generate {
             return ResponseEntity.notFound().build();
         }
     }
-
 }

@@ -103,10 +103,7 @@ public class GenerateLaporan {
 
             // Check conditions for generating docx
             String fileUrl = null;
-            if ("Tertunda".equals(updatedLaporan.getValidasi_pembina()) && !updatedLaporan.getPenutup().isEmpty()) {
-                // Generate file docx and get the URL
-                fileUrl = generateDocx(laporan);
-            } else if ("Disetujui".equals(updatedLaporan.getValidasi_pembina())) {
+            if ("Disetujui".equals(updatedLaporan.getValidasi_pembina())) {
                 // Generate file docx and get the URL
                 fileUrl = generateDocx(laporan);
             }

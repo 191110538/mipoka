@@ -102,19 +102,23 @@ public class GenerateLaporan {
             laporanRepository.save(laporan);
 
             // Check conditions for generating docx
-            if ((laporan.getRevisi_laporan() == null && !laporan.getPenutup().isEmpty())
-                    || (laporan.getValidasi_pembina().equals("Disetujui"))) {
+            String fileUrl = null;
+            if ("Tertunda".equals(updatedLaporan.getValidasi_pembina()) && !updatedLaporan.getPenutup().isEmpty()) {
                 // Generate file docx and get the URL
-                String fileUrl = generateDocx(laporan);
+                fileUrl = generateDocx(laporan);
+            } else if ("Disetujui".equals(updatedLaporan.getValidasi_pembina())) {
+                // Generate file docx and get the URL
+                fileUrl = generateDocx(laporan);
+            }
 
+            if (fileUrl != null) {
                 // Set properti "file_laporan_kegiatan" dengan nilai fileUrl
                 laporan.setFile_laporan_kegiatan(fileUrl);
 
-                // Update kembali data laporan dengan properti "file_laporan_kegiatan" yang
-                // telah terisi
+                // Update kembali data laporan dengan properti yang telah terisi
                 laporanRepository.save(laporan);
 
-                // Tampilkan URL file docx yang telah disimpan
+                // Tampilkan URL file yang telah disimpan
                 return ResponseEntity.ok("Laporan dengan ID " + id
                         + " berhasil diupdate dan file docx telah digenerate. URL file docx: " + fileUrl);
             } else {

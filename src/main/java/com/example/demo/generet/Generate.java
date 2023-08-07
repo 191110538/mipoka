@@ -158,20 +158,24 @@ public class Generate {
             usulanRepository.save(usulan);
 
             // Check conditions for generating the docx file
-            if (updatedUsulan.getRevisi_usulan() == null && !updatedUsulan.getPenutup().isEmpty()
-                    || "Disetujui".equals(updatedUsulan.getValidasi_pembina())) {
-                // Generate file docx and get the URL file docx
-                String fileUrl = generateDocx(usulan);
+            String fileUrl = null;
+            if ("Tertunda".equals(updatedUsulan.getValidasi_pembina()) && !updatedUsulan.getPenutup().isEmpty()) {
+                // Generate docx file and get the URL
+                fileUrl = generateDocx(usulan);
+            } else if ("Disetujui".equals(updatedUsulan.getValidasi_pembina())) {
+                // Generate docx file and get the URL
+                fileUrl = generateDocx(usulan);
+            }
 
+            if (fileUrl != null) {
                 // Set properti "file_usulan_kegiatan" dengan nilai fileUrl
                 usulan.setFile_usulan_kegiatan(fileUrl);
 
-                // Update kembali data usulan dengan properti "file_usulan_kegiatan" yang telah terisi
+                // Update kembali data usulan dengan properti yang telah terisi
                 usulanRepository.save(usulan);
 
-                // Tampilkan URL file docx yang telah disimpan
-                return ResponseEntity.ok("Usulan dengan ID " + id
-                        + " berhasil diupdate dan file docx telah digenerate. URL file docx: " + fileUrl);
+                // Tampilkan URL file yang telah disimpan
+                return ResponseEntity.ok("Usulan dengan ID " + id + " berhasil diupdate dan file docx telah digenerate. URL file docx: " + fileUrl);
             } else {
                 return ResponseEntity.ok("Usulan dengan ID " + id + " berhasil diupdate.");
             }
@@ -179,4 +183,5 @@ public class Generate {
             return ResponseEntity.notFound().build();
         }
     }
+
 }

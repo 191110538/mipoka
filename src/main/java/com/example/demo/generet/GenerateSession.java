@@ -31,34 +31,40 @@ public class GenerateSession {
         // Simpan data session ke database
         sessionRepository.save(session);
 
-        // URL endpoint untuk request generate docx link sesi kegiatan
-        String url = "https://generate-mbogddtpiq-et.a.run.app/session"; // Ganti sesuai URL server Anda
+        // Periksa jika tanda_tangan_sa tidak kosong
+        if (session.getTanda_tangan_sa() != null && !session.getTanda_tangan_sa().isEmpty()) {
+            // URL endpoint untuk request generate docx link sesi kegiatan
+            String url = "https://generate-mbogddtpiq-et.a.run.app/session"; // Ganti sesuai URL server Anda
 
-        // Membuat headers untuk request
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
+            // Membuat headers untuk request
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
 
-        // Membuat entity untuk request dengan data sesi kegiatan
-        HttpEntity<Session> requestEntity = new HttpEntity<>(session, headers);
+            // Membuat entity untuk request dengan data sesi kegiatan
+            HttpEntity<Session> requestEntity = new HttpEntity<>(session, headers);
 
-        // Membuat RestTemplate
-        RestTemplate restTemplate = new RestTemplate();
+            // Membuat RestTemplate
+            RestTemplate restTemplate = new RestTemplate();
 
-        // Melakukan request POST ke endpoint '/session-kegiatan' di server
-        ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,
-                String.class);
+            // Melakukan request POST ke endpoint '/session-kegiatan' di server
+            ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,
+                    String.class);
 
-        // Mendapatkan response dari server (berupa URL file docx yang telah disimpan)
-        String fileUrl = responseEntity.getBody();
+            // Mendapatkan response dari server (berupa URL file docx yang telah disimpan)
+            String fileUrl = responseEntity.getBody();
 
-        // Set properti "file_session" dengan nilai fileUrl
-        session.setFile_session(fileUrl);
+            // Set properti "file_session" dengan nilai fileUrl
+            session.setFile_session(fileUrl);
 
-        // Update data sesi dengan properti "file_session" yang telah terisi
-        sessionRepository.save(session);
+            // Update data sesi dengan properti "file_session" yang telah terisi
+            sessionRepository.save(session);
 
-        // Tampilkan URL file docx yang telah disimpan
-        return ResponseEntity.ok("Sesi berhasil disimpan. URL file docx: " + fileUrl);
+            // Tampilkan URL file docx yang telah disimpan
+            return ResponseEntity.ok("Sesi berhasil disimpan dan file docx telah dihasilkan. URL file docx: " + fileUrl);
+        }
+
+        // Tampilkan URL file docx yang telah disimpan tanpa hasil generate
+        return ResponseEntity.ok("Sesi berhasil disimpan. URL file docx: " + session.getFile_session());
     }
 
     @PutMapping("/session/{id}")
@@ -97,6 +103,39 @@ public class GenerateSession {
             // Simpan data sesi yang telah diupdate ke database
             sessionRepository.save(session);
 
+            if (updatedSession.getTanda_tangan_sa() != null && !updatedSession.getTanda_tangan_sa().isEmpty()) {
+                // URL endpoint untuk request generate docx link sesi kegiatan
+                String url = "https://generate-mbogddtpiq-et.a.run.app/session"; // Ganti sesuai URL server Anda
+    
+                // Membuat headers untuk request
+                HttpHeaders headers = new HttpHeaders();
+                headers.setContentType(MediaType.APPLICATION_JSON);
+    
+                // Membuat entity untuk request dengan data sesi kegiatan
+                HttpEntity<Session> requestEntity = new HttpEntity<>(session, headers);
+    
+                // Membuat RestTemplate
+                RestTemplate restTemplate = new RestTemplate();
+    
+                // Melakukan request POST ke endpoint '/session-kegiatan' di server
+                ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,
+                        String.class);
+    
+                // Mendapatkan response dari server (berupa URL file docx yang telah disimpan)
+                String fileUrl = responseEntity.getBody();
+    
+                // Set properti "file_session" dengan nilai fileUrl
+                session.setFile_session(fileUrl);
+            }
+    
+            // Update data sesi dengan properti "tanda_tangan_sa" yang telah diubah dan (opsional) "file_session" yang telah terisi
+            session.setTanda_tangan_sa(updatedSession.getTanda_tangan_sa());
+            session.setUpdated_at(updatedSession.getUpdated_at());
+            session.setUpdated_by(updatedSession.getUpdated_by());
+    
+            // Simpan data sesi yang telah diupdate ke database
+            sessionRepository.save(session);
+    
             return ResponseEntity.ok("Sesi dengan ID " + id + " berhasil diupdate.");
         } else {
             return ResponseEntity.notFound().build();

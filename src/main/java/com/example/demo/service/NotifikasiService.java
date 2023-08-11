@@ -6,7 +6,11 @@ import org.springframework.stereotype.Service;
 import com.example.demo.entity.Notifikasi;
 import com.example.demo.repository.NotifikasiRepository;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class NotifikasiService {
@@ -52,5 +56,24 @@ public class NotifikasiService {
         } else {
             return false;
         }
+    }
+
+    public List<Notifikasi> getAllNotifikasiOrderByCreatedAtDesc() {
+        List<Notifikasi> notifikasiList = notifikasiRepository.findAll();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");
+
+        List<Notifikasi> sortedNotifikasi = notifikasiList.stream()
+                .sorted(Comparator.comparing(notif -> {
+                    try {
+                        return dateFormat.parse(notif.getTgl_notifikasi());
+                    } catch (ParseException e) {
+                        // Handle parsing exception if needed
+                        return null;
+                    }
+                }, Comparator.reverseOrder()))
+                .collect(Collectors.toList());
+
+        return sortedNotifikasi;
     }
 }

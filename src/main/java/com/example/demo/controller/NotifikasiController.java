@@ -34,7 +34,7 @@ public class NotifikasiController {
         return notifikasiService.getNotifikasiById(id);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Notifikasi> getAllNotifikasi() {
         return notifikasiService.getAllNotifikasi();
     }
@@ -48,7 +48,7 @@ public class NotifikasiController {
     public boolean deleteNotifikasi(@PathVariable Long id) {
         return notifikasiService.deleteNotifikasi(id);
     }
-    @GetMapping("/sorted")
+    @GetMapping
     public List<Notifikasi> getAllNotifikasiOrderByCreatedAtDesc() {
         return notifikasiService.getAllNotifikasiOrderByCreatedAtDesc();
     }

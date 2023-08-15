@@ -159,20 +159,22 @@ public class Generate {
 
             // Check conditions for generating the docx file
             String fileUrl = null;
-            if ("Disetujui".equals(updatedUsulan.getValidasi_pembina())) {
+            if ("Disetujui".equals(updatedUsulan.getValidasi_pembina())
+                    && "Tertunda".equals(updatedUsulan.getStatus_usulan())) {
                 // Generate docx file and get the URL
                 fileUrl = generateDocx(usulan);
             }
 
             if (fileUrl != null) {
-                // Set properti "file_usulan_kegiatan" dengan nilai fileUrl
+                // Set property "file_usulan_kegiatan" with the fileUrl value
                 usulan.setFile_usulan_kegiatan(fileUrl);
 
-                // Update kembali data usulan dengan properti yang telah terisi
+                // Update the usulan data with the filled property
                 usulanRepository.save(usulan);
 
-                // Tampilkan URL file yang telah disimpan
-                return ResponseEntity.ok("Usulan dengan ID " + id + " berhasil diupdate dan file docx telah digenerate. URL file docx: " + fileUrl);
+                // Display the URL of the saved docx file
+                return ResponseEntity.ok("Usulan dengan ID " + id
+                        + " berhasil diupdate dan file docx telah digenerate. URL file docx: " + fileUrl);
             } else {
                 return ResponseEntity.ok("Usulan dengan ID " + id + " berhasil diupdate.");
             }

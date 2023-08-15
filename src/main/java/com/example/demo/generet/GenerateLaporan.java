@@ -103,19 +103,20 @@ public class GenerateLaporan {
 
             // Check conditions for generating docx
             String fileUrl = null;
-            if ("Disetujui".equals(updatedLaporan.getValidasi_pembina())) {
+            if ("Disetujui".equals(updatedLaporan.getValidasi_pembina())
+                    && "Tertunda".equals(updatedLaporan.getStatus_laporan())) {
                 // Generate file docx and get the URL
                 fileUrl = generateDocx(laporan);
             }
 
             if (fileUrl != null) {
-                // Set properti "file_laporan_kegiatan" dengan nilai fileUrl
+                // Set property "file_laporan_kegiatan" with the fileUrl value
                 laporan.setFile_laporan_kegiatan(fileUrl);
 
-                // Update kembali data laporan dengan properti yang telah terisi
+                // Update the laporan data with the filled property
                 laporanRepository.save(laporan);
 
-                // Tampilkan URL file yang telah disimpan
+                // Display the URL of the saved docx file
                 return ResponseEntity.ok("Laporan dengan ID " + id
                         + " berhasil diupdate dan file docx telah digenerate. URL file docx: " + fileUrl);
             } else {

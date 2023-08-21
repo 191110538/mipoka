@@ -20,7 +20,7 @@ public class LaporanController {
         this.laporanService = laporanService;
     }
 
-    @PostMapping("/post")
+    @PostMapping
     public ResponseEntity<Laporan> createLaporan(@RequestBody Laporan laporan) {
         Laporan createdLaporan = laporanService.createLaporan(laporan);
         return new ResponseEntity<>(createdLaporan, HttpStatus.CREATED);
@@ -41,7 +41,7 @@ public class LaporanController {
         }
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Laporan> updateLaporan(@PathVariable("id") Long id, @RequestBody Laporan laporan) {
         Laporan updatedLaporan = laporanService.updateLaporan(id, laporan);
         if (updatedLaporan != null) {

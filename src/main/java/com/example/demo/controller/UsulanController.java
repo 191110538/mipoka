@@ -34,7 +34,7 @@ public class UsulanController {
         this.usulanService = usulanService;
     }
 
-    @PostMapping("/post")
+    @PostMapping
     public Usulan createUsulan(@RequestBody Usulan usulan) {
         return usulanService.createUsulan(usulan);
     }
@@ -54,7 +54,7 @@ public class UsulanController {
         usulanService.deleteUsulan(id);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public Usulan updateUsulan(@PathVariable Long id, @RequestBody Usulan usulanData) {
         Usulan usulan = usulanService.getUsulanById(id);
         if (usulan != null) {
